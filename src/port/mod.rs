@@ -1,0 +1,12 @@
+pub mod b2b_port;
+pub use b2b_port::*;
+pub mod billing_key_port;
+pub use billing_key_port::*;
+pub mod identity_verification_port;
+pub use identity_verification_port::*;
+pub mod misc_port;
+pub use misc_port::*;
+pub mod payment_port;
+pub use payment_port::*;
+pub mod platform_port;
+pub use platform_port::*;

@@ -1,0 +1,67 @@
+{
+  "timestamp": "20260724T012646",
+  "branch": "tidy-sdk-quality",
+  "dimensions": {
+    "correctness": {
+      "details": {
+        "command": "cargo test",
+        "exit_code": 0,
+        "tests_passed": 264,
+        "tests_total": 264,
+        "breakdown": {
+          "routing_4xx": 147,
+          "e2e_success_200": 93,
+          "unit_integration": 24
+        },
+        "note": "endpoints_success(e2e 200 경로 93개) 포함. oneOf enum 응답 54개는 openapi-generator round-trip 결함(tag/struct 필드 중복 평탄화)으로 회귀 게이트에서 skip. (epic 파서는 마지막 테스트 바이너리만 잡아 raw tests_passed=1 이지만, 실제는 위 breakdown 합계 264.)"
+      },
+      "duration_ms": 7958,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "performance": {
+      "details": {
+        "command": "cargo bench --bench eval_harness -- --quick",
+        "exit_code": 0,
+        "medians": {
+          "sdk_error/from_response_error": "302 ns",
+          "serde/serialize_request_body": "36.5 ns",
+          "serde/deserialize_response_50_items": "5.74 µs"
+        },
+        "note": "이번 실행 기준. 직전 대비 유의미 변화 없음(p>0.05)."
+      },
+      "duration_ms": 87780,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "quality": {
+      "details": {
+        "command": "cargo clippy --all-targets -- -D warnings",
+        "exit_code": 0,
+        "lint_score": 1.0,
+        "llm_judge": "SKIPPED"
+      },
+      "duration_ms": 369,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "regression": {
+      "details": {
+        "deltas": {
+          "correctness": { "baseline": 1.0, "current": 1.0, "delta": "+0.0000", "regressed": false },
+          "quality": { "baseline": 1.0, "current": 1.0, "delta": "+0.0000", "regressed": false }
+        },
+        "threshold": 0.05
+      },
+      "duration_ms": 0,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    }
+  },
+  "overall_score": 1.0,
+  "overall_verdict": "PASS"
+}

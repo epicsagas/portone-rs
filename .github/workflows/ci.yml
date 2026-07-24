@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        components: rustfmt, clippy
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Build
+      run: cargo build --verbose
+
+    - name: Build examples
+      run: cargo build --examples --verbose
+
+    - name: Verify generated files are up to date
+      run: |
+        python3 generate_hexagonal.py
+        python3 generate_tests.py
+        python3 generate_e2e_tests.py
+        git diff --exit-code
+
+    - name: Run tests
+      run: cargo test --verbose
+
+    - name: Rustfmt
+      run: cargo fmt -- --check
+
+    - name: Clippy
+      run: cargo clippy --all-targets -- -D warnings

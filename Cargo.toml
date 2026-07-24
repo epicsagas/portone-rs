@@ -1,0 +1,43 @@
+[package]
+name = "portone-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Hexagonal Rust SDK for the PortOne V2 API (Unofficial)"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/epicsagas/portone-rs"
+documentation = "https://docs.rs/portone-rs"
+readme = "README.md"
+keywords = ["portone", "payment", "sdk", "fintech", "api"]
+categories = ["api-bindings", "web-programming::http-client"]
+rust-version = "1.75"
+
+[dependencies]
+async-trait = "0.1"
+chrono = { version = "0.4.45", features = ["serde"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+url = "2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+wiremock = "0.6.5"
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
+
+[[bench]]
+name = "eval_harness"
+harness = false
+
+[[test]]
+name = "endpoints"
+path = "tests/generated/endpoints.rs"
+
+[[test]]
+name = "endpoints_success"
+path = "tests/generated/endpoints_success.rs"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"

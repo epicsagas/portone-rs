@@ -1,0 +1,69 @@
+{
+  "timestamp": "20260724T012646",
+  "dimensions": {
+    "correctness": {
+      "details": {
+        "command": "cargo test",
+        "exit_code": 0,
+        "stderr_tail": "...nt-ae6f820d77713898)\n     Running tests/identity_verification_adapter.rs (target/debug/deps/identity_verification_adapter-86323ce7e5ba6093)\n     Running tests/misc_adapter.rs (target/debug/deps/misc_adapter-cda09b878e3c4185)\n     Running tests/payment_adapter.rs (target/debug/deps/payment_adapter-c6c6457234c7df90)\n     Running tests/platform_adapter.rs (target/debug/deps/platform_adapter-a60002c1e16f56ca)\n     Running tests/sdk.rs (target/debug/deps/sdk-4fd181ed48368ccc)\n   Doc-tests portone_rs\n",
+        "stdout_tail": "...d out; finished in 0.03s\n\n\nrunning 1 test\ntest delete_platform_transfer_succeeds ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n\nrunning 1 test\ntest test_client_initialization ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s\n\n\nrunning 1 test\ntest src/lib.rs - prelude (line 30) - compile ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.45s\n\n",
+        "tests_passed": 1,
+        "tests_total": 1
+      },
+      "duration_ms": 7958,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "performance": {
+      "details": {
+        "command": "cargo bench --bench eval_harness -- --quick",
+        "exit_code": 0,
+        "stdout_tail": "...in performance detected.\n\nserde/serialize_request_body\n                        time:   [40.063 ns 41.097 ns 41.355 ns]\n                        change: [+9.2349% +11.246% +13.266%] (p = 0.08 > 0.05)\n                        No change in performance detected.\n\nserde/deserialize_response_50_items\n                        time:   [6.4852 µs 6.5606 µs 6.5794 µs]\n                        change: [+12.914% +13.825% +14.736%] (p = 0.08 > 0.05)\n                        No change in performance detected.\n\n"
+      },
+      "duration_ms": 996,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "quality": {
+      "details": {
+        "command": "cargo clippy --all-targets -- -D warnings",
+        "exit_code": 0,
+        "lint_score": 1.0,
+        "llm_judge": "SKIPPED",
+        "stderr_tail": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.27s\n",
+        "stdout_tail": ""
+      },
+      "duration_ms": 380,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "regression": {
+      "details": {
+        "deltas": {
+          "correctness": {
+            "baseline": 1.0,
+            "current": 1.0,
+            "delta": "+0.0000",
+            "regressed": false
+          },
+          "quality": {
+            "baseline": 1.0,
+            "current": 1.0,
+            "delta": "+0.0000",
+            "regressed": false
+          }
+        },
+        "threshold": 0.05
+      },
+      "duration_ms": 0,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    }
+  },
+  "overall_score": 1.0,
+  "overall_verdict": "PASS"
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20260721T222105",
+  "dimensions": {
+    "correctness": {
+      "details": {
+        "command": "cargo test",
+        "exit_code": 0,
+        "stderr_tail": "...nt-9660d394c7d2f6df)\n     Running tests/identity_verification_adapter.rs (target/debug/deps/identity_verification_adapter-bdb8c20e85a01e65)\n     Running tests/misc_adapter.rs (target/debug/deps/misc_adapter-3ff234f972952dd8)\n     Running tests/payment_adapter.rs (target/debug/deps/payment_adapter-179635b947367f7e)\n     Running tests/platform_adapter.rs (target/debug/deps/platform_adapter-6136327209d87211)\n     Running tests/sdk.rs (target/debug/deps/sdk-734dc90f77747a9d)\n   Doc-tests portone_v2\n",
+        "stdout_tail": "...2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s\n\n\nrunning 1 test\ntest delete_platform_transfer_succeeds ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s\n\n\nrunning 1 test\ntest test_client_initialization ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+        "tests_passed": 0,
+        "tests_total": 0
+      },
+      "duration_ms": 4122,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "quality": {
+      "details": {
+        "command": "cargo clippy --all-targets -- -D warnings",
+        "exit_code": 0,
+        "lint_score": 1.0,
+        "llm_judge": "SKIPPED",
+        "stderr_tail": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.20s\n",
+        "stdout_tail": ""
+      },
+      "duration_ms": 275,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    },
+    "regression": {
+      "details": {
+        "note": "no previous baseline — first run"
+      },
+      "duration_ms": 0,
+      "passed": true,
+      "score": 1.0,
+      "verdict": "PASS"
+    }
+  },
+  "overall_score": 1.0,
+  "overall_verdict": "PASS"
+}
